@@ -1,22 +1,21 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-import {  Route, Link } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 import { PostProvider } from "../types/types";
 
 import { Posts } from "../Posts/Posts";
 import { SelectedPost } from "../SelectedPost/SelectedPost";
+import { NewPost } from "../NewPost/NewPost";
 
-import "./App.css";
-
-export default function App() {
-  const [error, setError] = useState<string>();
+export default function App(): JSX.Element {
+  const [error, setError] = useState<string | undefined>();
   const [loading, setLoading] = useState<boolean>(true);
   const [posts, setPosts] = useState<PostProvider[]>([]);
-  const [selectedPost, setSelectedPost] = useState<PostProvider | undefined>(
-    undefined
-  );
+  const [newPostTitle, setNewPostTitle] = useState<string>("");
+  const [newPostText, setNewPostText] = useState<string>("");
 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getPosts = async (): Promise<void> => {
@@ -34,31 +33,39 @@ export default function App() {
     getPosts();
   }, []);
 
-  const handlePostSelect = (post: number) => {
-    const neededPost: PostProvider = posts.filter(
-      (findPost) => Number(findPost.id) === post
-    )[0];
-    setSelectedPost(neededPost);
+  const handleNewPost = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const newPostId = posts.length + 1;
+    const newPost: PostProvider = {
+      userId: "1",
+      id: newPostId.toString(),
+      title: newPostTitle,
+      body: newPostText,
+    };
+    setPosts([...posts, newPost]);
+    navigate("/");
   };
 
   return (
-      <div className="App">
-      {error && <h2>{error}</h2>}
-      {loading === true ? (
-        <div className="spinner-container">
-          <div className="spinner"></div>
-        </div>
-      ) : (
-        <>
-          <Posts posts={posts} handlePostSelect={handlePostSelect} />
-          {selectedPost !== undefined && 
-            <Route path="/post">
-              <SelectedPost selectedPost={selectedPost}/>
-            </Route>
-            }
-        </>
-      )}
-    </div>    
-
+    <Routes>
+      <Route
+        path="/"
+        element={<Posts posts={posts} error={error} loading={loading} />}
+      />
+      <Route
+        path="/post/:postNumber"
+        element={<SelectedPost posts={posts} />}
+      />
+      <Route
+        path="/newpost"
+        element={
+          <NewPost
+            setNewPostTitle={setNewPostTitle}
+            setNewPostText={setNewPostText}
+            onNewPost={handleNewPost}
+          />
+        }
+      />
+    </Routes>
   );
 }

@@ -1,0 +1,45 @@
+.selectedPost {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top:50px;
+    color:#f6f6f6;
+}
+.selectedPost a {
+    text-decoration: none;
+    color:#f6f6f6;
+    margin-top: 30px;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.selectedPost a:hover {
+    color:#E58900;
+}
+.selectedPost h1 {
+    margin-bottom: 0px;
+    width: 55%;
+    text-align: center;
+}
+.selectedPost h3 {
+    margin-top: 3px;
+}
+.selectedPost p {
+    width:45%;
+    letter-spacing: 1px;
+    line-height: 1.8em;
+}
+.undefinedPost p {
+    width:45%;
+    letter-spacing: 1px;
+    line-height: 1.8em;
+}
+.undefinedPost a {
+    text-decoration: none;
+    color:#f6f6f6;
+    margin-top: 30px;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.undefinedPost a:hover {
+    color:#E58900;
+}

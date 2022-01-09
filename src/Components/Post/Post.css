@@ -9,6 +9,7 @@
     height: 74px;
     padding:5px;
     border-radius: 5px;
+    text-decoration: none;
 }
 .post-number {
     color: #010326;
@@ -19,4 +20,5 @@
 }
 .post-title {
     margin:0 0 0 2px;
+    color:#010326;
 }

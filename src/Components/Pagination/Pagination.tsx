@@ -13,7 +13,6 @@ interface Props {
   dataLimit: number;
   data: PostProvider[];
   RenderComponent: React.FunctionComponent<PostProps>;
-  handlePostSelect: (post:number) => void;
 }
 
 export const Pagination: React.FC<Props> = ({
@@ -21,7 +20,6 @@ export const Pagination: React.FC<Props> = ({
   dataLimit,
   pageLimit,
   RenderComponent,
-  handlePostSelect
 }) => {
   let totalPageCount: number = Math.ceil(data.length / dataLimit);
   const [pages] = useState<number>(Math.ceil(data.length / dataLimit));
@@ -89,7 +87,6 @@ export const Pagination: React.FC<Props> = ({
           <RenderComponent
             key={index}
             data={data}
-            onPostSelect={handlePostSelect}
           />
         ))}
       </div>

@@ -1,0 +1,63 @@
+.form-cont {
+    max-width: 490px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:0 auto;
+    padding-top: 80px;
+}
+.form-cont h1 {
+    color:#f6f6f6;
+}
+#postForm {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+#postForm > :nth-child(2) {
+    min-height: 300px;
+    padding: 10px;
+    border:none;
+}
+#postForm input {
+    width:480px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border:none;
+}
+#postForm > :nth-child(2):focus {
+    outline: none;
+}
+#postForm input:focus {
+    outline: none;
+}
+#postForm input::placeholder {
+    color:#000;
+    font-size: 1rem;
+}
+#postForm > :nth-child(2)::placeholder {
+    color:#000;
+    font-size: 1rem;
+}
+#postForm > :nth-child(3) {
+    margin-top:30px;
+    max-width: 150px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+#postForm > :nth-child(3):hover {
+    cursor: pointer;
+    background-color: #E58900;
+    color:#fff;
+}
+.form-cont a {
+    text-decoration: none;
+    color:#f6f6f6;
+    margin-top: 30px;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.form-cont a:hover {
+    color:#E58900;
+}

@@ -1,46 +1,14 @@
-# Getting Started with Create React App
+React-Typescript project done using hooks and https://jsonplaceholder.typicode.com/posts api.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React-router-dom@6 is used to make different pages with connected components.
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Main points of the project:
+1) On page load data is being fetched, during this period a spinning element is displayed.
+2) Once data is fetched, it's displayed in a list.
+3) Pagination is applied to data. 7 items are displayed per page.
+4) To change the list, user can use mouse clicks on numbers, prev & next buttons or keyboard left & right arrows.
+5) If user presses on the item in the list, he is brought to different page, where more information is displayed.
+6) User can go back to the main page.
+7) If user presses button to make a new post, he is brought to a page, where he can make a new post (new post would be added to DB if it was connected to it).
+8) Once he creates a new post, he's redirected back to the main page.
+9) User can redirect to the pages using urls: 1) "/" - main page. 2) "/post/:postNumber". 3) "/newpost".
